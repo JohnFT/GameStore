@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 // Routes
 import { APP_ROUTING } from './app.routes';
 import { AppSettingService } from './services/app.setting.services';
@@ -18,7 +20,8 @@ import { ConfigService } from './services/config.service';
     NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
-    APP_ROUTING
+    APP_ROUTING,
+    BrowserAnimationsModule
   ],
   providers: [
     AppSettingService,

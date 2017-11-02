@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
+import { MatInputModule, MatButtonModule, MatIcon, MAT_PLACEHOLDER_GLOBAL_OPTIONS } from '@angular/material';
 // Services
 import { ServiceLogin } from './services/login.services';
 
@@ -16,13 +17,16 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MatInputModule,
+    MatButtonModule
   ],
   declarations: [
     PageLogin
   ],
   providers: [
-    ServiceLogin
+    ServiceLogin,
+    {provide: MAT_PLACEHOLDER_GLOBAL_OPTIONS, useValue: {float: 'always'}}
   ]
 })
 export class LoginModule { }
