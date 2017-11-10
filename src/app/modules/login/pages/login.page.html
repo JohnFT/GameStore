@@ -3,29 +3,30 @@
         <div class="titel">
             <h1>Store Game</h1>
         </div>
-        <form action="">
+        <form [formGroup]="lForm" (ngSubmit)="signIn(lForm.value)">
             <div class="field d-flex">
                 <span>
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" id="user" placeholder="usuario" required>
+                <input type="text" class="form-control" id="user" placeholder="usuario" formControlName='username'>
             </div>
             <div class="field d-flex">
                 <span>
                     <i class="fa fa-key" aria-hidden="true"></i>
                 </span>
-                <input type="password" class="form-control" id="pass" placeholder="*****" value="" required>
+                <input type="password" class="form-control" id="pass" placeholder="*****" formControlName='password'>
             </div>
             <div class="btn-signIn">
-                <button class="btn btn-block">
+                <button type="submit" class="btn btn-block" [disabled]='!lForm.valid'>
                     <i class="fa fa-sign-in" aria-hidden="true"></i>
                 </button>
             </div>
         </form>
-        <a class="resgister">Registrate</a>
+        <a routerLink='/signup' class="resgister">Registrate</a>
         <p class="text-center text-muted">Haz parte de Store Game</p>
         <div class="text-right icon">
             <i class="fa fa-gamepad" aria-hidden="true"></i>
         </div>
     </section>
+    <app-alert [alert]='alert'></app-alert>
 </div>

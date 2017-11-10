@@ -1,0 +1,45 @@
+<div class="Component-addGame d-flex flex-column">
+    <app-menu></app-menu>
+    <section class="Component-addGame-body">
+        <div class="title d-flex">
+            <h5>Adicionar</h5>
+            <hr>
+        </div>
+        <form [formGroup]='aForm' (ngSubmit)='add(aForm.value)'>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="game.gam_name" placeholder="nombre" formControlName='gam_name'>
+            </div>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="game.gam_price" placeholder="Precio" formControlName='gam_price'>
+            </div>
+            <div class="field d-flex">
+                <textarea cols="30" rows="10" class="form-control" id="game.game_detail" placeholder="Detalle" formControlName='game_detail'></textarea>
+            </div>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="game.game_unity" placeholder="Unidades" formControlName='game_unity'>
+            </div>
+            <div class="field d-flex">
+                <input type="hidden" class="form-control" id="game.game_image" placeholder="Image" formControlName='game_image'>
+            </div>
+            <div class="image">
+                <img [src]="imgname" alt="image">
+                <button class="btn btn-block btn-warning">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                    <input type="file" (change)="fileChange($event)" class="form-control" placeholder="Image" accept="image/x-png,image/gif,image/jpeg">
+                </button>
+            </div>
+            <div class="btn-add">
+                <button class="btn btn-block" [disabled]='!aForm.valid'>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+        <p class="text-center text-muted">
+            Adiciona los juegos que esten disponibles para la venta
+        </p>
+        <div class="text-right icon">
+            <i class="fa fa-gamepad" aria-hidden="true"></i>
+        </div>
+    </section>
+    <app-alert [alert]='alert'></app-alert>
+</div>

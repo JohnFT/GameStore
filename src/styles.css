@@ -12,3 +12,11 @@ h4,
 h5 {
     font-family: 'Patua One', cursive;
 }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948;
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442;
+  }

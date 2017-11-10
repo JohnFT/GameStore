@@ -1,4 +1,4 @@
-.Component-login {
+.Component-signUp {
     height: 100%;
     width: 100%;
     background-color: #2da0cb;
@@ -13,14 +13,29 @@
         border-radius: 3px;
         width: 400px;
         box-shadow: 1px 1px 14px #376f84;
-        .titel{
-            margin-bottom: 20px;
+        .back{
+            i{
+                font-size: 25px;
+                color: #686868;
+                font-weight: 900;
+            }
+        }
+        .title{
+            margin-bottom: 10px;
             h1 {
                 font-size: 40px;
                 color: #686868;
                 text-align: center;
-                i {
-                    font-size: 60px;
+            }
+            div{
+                h5{
+                    font-size: 16px;
+                    color: #686868;
+                }
+                hr{
+                    width: 100%;
+                    margin: 10px;
+                    border-top-color: #686868;
                 }
             }
         }
@@ -28,26 +43,21 @@
         form {
             .field {
                 margin: 5px;
+                margin-bottom: 10px;
                 background-color: #e9ecf1;
-                span {
-                    padding: 5px 0 5px 10px;
-                    color: #4b4b4b;
-                    font-size: 18px;
-                    vertical-align: middle;
-                }
                 input {
                     background-color: #e9ecf1;
                     border: none;
                     border-radius: 3px;
-                    padding-left: 10px;
                     font-size: 13px;
                     outline: none !important;
                     box-shadow: none !important;
                     font-family: 'Khula', sans-serif !important;
                 }
             }
-            .btn-signIn {
+            .btn-signUp {
                 padding: 5px;
+                margin-bottom: 10px;
                 button {
                     background-color: #15b8d4;
                     color: white;
@@ -57,14 +67,6 @@
                     cursor: pointer;
                 }
             }
-        }
-
-        a.resgister{
-            font-family: 'Patua One', cursive;
-            display: block;
-            text-align: center;
-            color: #676767;
-            cursor: pointer;
         }
         p{
             font-size: 12px;

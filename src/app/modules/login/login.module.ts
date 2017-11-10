@@ -2,31 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Routes, RouterModule } from '@angular/router';
-import { MatInputModule, MatButtonModule, MatIcon, MAT_PLACEHOLDER_GLOBAL_OPTIONS } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Services
 import { ServiceLogin } from './services/login.services';
-
+import { SharedModule } from '../../shared'
 // Page
-import { PageLogin } from './page/login.page';
+import { PageLogin } from './pages/login.page';
 const routes: Routes = [
   { path: '', component: PageLogin },
-  { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     NgbModule.forRoot(),
-    MatInputModule,
-    MatButtonModule
+    SharedModule
   ],
   declarations: [
     PageLogin
   ],
   providers: [
     ServiceLogin,
-    {provide: MAT_PLACEHOLDER_GLOBAL_OPTIONS, useValue: {float: 'always'}}
   ]
 })
 export class LoginModule { }

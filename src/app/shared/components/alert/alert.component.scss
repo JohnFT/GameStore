@@ -1,0 +1,12 @@
+.Component-alert{
+    padding: 0 30px;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    .alert{
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: left;
+    }
+}

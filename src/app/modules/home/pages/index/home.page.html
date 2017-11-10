@@ -1,0 +1,46 @@
+<div class="Component-home d-flex flex-column">
+    <app-menu></app-menu>
+    <section class="Component-home-body">
+        <div class="title d-flex">
+            <h5>Games</h5>
+            <hr>
+        </div>
+        <div class="text-right search">
+            <input type="text" class="form-control" placeholder="Buscar...">
+        </div>
+        <div class="list-card d-flex flex-wrap justify-content-center">
+            <div class="card" *ngFor='let game of games'>
+                <img class="card-img-top" [src]="game.game_image" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">{{game.gam_name}}</h4>
+                    <p class="card-text">{{game.game_detail}}</p>
+                    <div class="d-flex btns">
+                        <a class="btn btn-outline-danger buy" (click)='buyGame(game)'>{{game.gam_price | currency:'COP'}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="popup" *ngIf='showPopup'>
+    <div class="popup-body">
+        <div class="card">
+            <div class="text-right">
+                <span (click)='hiddenPopup()'><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+            <div class="justify-content-center d-flex">
+                <img class="card-img-top" [src]="buy.game.game_image" alt="Card image cap">
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">{{buy.game.gam_name}}</h4>
+                <p class="card-text">{{buy.game.gam_price | currency:'COP' }}</p>
+                <form [formGroup]="hForm" (ngSubmit)="pay(hForm.value)">
+                    <input type="text" class="form-control"  placeholder="numero" formControlName='pay_card'>
+                    <input type="text" class="form-control"  placeholder="codigo seguridad" formControlName='pay_security'>
+                    <input type="date" class="form-control"  placeholder="fecha vencimiento" formControlName='pay_dateend'>
+                    <button type="submit" class="btn btn-primary danger btn-block" [disabled]='!hForm.valid'>Comprar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

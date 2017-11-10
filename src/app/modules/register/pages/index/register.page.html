@@ -1,0 +1,45 @@
+<div class="Component-signUp">
+    <section class="Component-signUp-body">
+        <div class="back text-right">
+            <a routerLink='/'>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="title">
+            <h1>Store Game</h1>
+            <div class="d-flex">
+                <h5>Registrate</h5>
+                <hr>
+            </div>
+        </div>
+        <form [formGroup]='rForm' (ngSubmit)='signUp(rForm.value)'>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="user.use_name" placeholder="nombre usuario" formControlName='use_name' >
+            </div>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="user.use_firstname" placeholder="nombre" value="" formControlName='use_firstname'>
+            </div>
+            <div class="field d-flex">
+                <input type="text" class="form-control" id="user.use_lastname" placeholder="Apellidos" value="" formControlName='use_lastname'>
+            </div>
+            <div class="field d-flex">
+                <input type="password" class="form-control" id="user.use_pass" placeholder="contraseña" value="" formControlName='use_pass'>
+            </div>
+            <div class="field d-flex">
+                <input type="password" class="form-control" id="confirm" placeholder="repetir contraseña" value="" formControlName='confirm'>
+            </div>
+            <div class="btn-signUp">
+                <button class="btn btn-block" [disabled]='!rForm.valid'>
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+        <p class="text-center text-muted">
+            Crea una cuenta en Store Game obten las mejores promociones
+        </p>
+        <div class="text-right icon">
+            <i class="fa fa-gamepad" aria-hidden="true"></i>
+        </div>
+    </section>
+    <app-alert [alert]='alert'></app-alert>
+</div>
