@@ -29,6 +29,7 @@ export class PageLogin {
         this._service.SignIn(form)
             .then((res: Response) => {
                 if (res.status === 200) {
+                    localStorage.setItem('store:user', JSON.stringify(res.data));
                     this._route.navigate(['home']);
                 } else {
                     this.alert.status = true;

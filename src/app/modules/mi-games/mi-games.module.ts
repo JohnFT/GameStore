@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// Pages
-import { PageHome } from './pages/index/home.page';
+import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxQRCodeModule } from 'ngx-qrcode3';
-//Modules
 import { SharedModule } from '../../shared/shared.module';
-
-// Routes
+import { PageMiGames } from './pages/mi.game.page';
+import { ServiceMyGames } from './services/my.games.service';
 const route: Routes = [
-  { path: '', component: PageHome },
+  { path: '', component: PageMiGames },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ]
 
@@ -20,13 +16,14 @@ const route: Routes = [
     CommonModule,
     RouterModule.forChild(route),
     NgbModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule,
     NgxQRCodeModule,
     SharedModule
   ],
   declarations: [
-    PageHome
+    PageMiGames
+  ],
+  providers: [
+    ServiceMyGames
   ]
 })
-export class HomeModule { }
+export class MiGamesModule { }

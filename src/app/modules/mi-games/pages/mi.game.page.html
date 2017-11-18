@@ -1,0 +1,27 @@
+<div class="Component-games d-flex flex-column">
+    <app-menu></app-menu>
+    <section class="Component-games-body">
+        <div class="title d-flex">
+            <h5>My Games</h5>
+            <hr>
+        </div>
+        <div class="text-right search">
+            <input type="text" class="form-control" placeholder="Buscar...">
+        </div>
+        <div class="list-card d-flex flex-wrap justify-content-center">
+            <div class="card" *ngFor='let game of games'>
+                <img class="card-img-top" [src]="game.game.game_image" alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title">{{game.game.gam_name}}</h4>
+                    <p class="card-text">{{game.game.game_detail}}</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex btns">
+                            {{game.game.gam_price | currency:'COP'}}
+                        </div>
+                        <ngx-qrcode [qrc-value]="''+game.pay_code" [qrc-version]=5 [qrc-correction-level]="'L'"></ngx-qrcode>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
